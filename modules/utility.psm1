@@ -89,8 +89,8 @@ function Set-LoginOrLogout{
     Set-UserInterface
     $global:auth = $false
     [System.Windows.MessageBox]::Show('You are logged out')
-    $WPFGridHomeFrame.Visibility = 'Hidden'
-    $WPFGridGroupManagement.Visibility = 'Hidden'
+    $WPFGridDeviceView.Visibility = 'Hidden'
+    $WPFGridDeviceFinder.Visibility = 'Visible'
     Return
   }
 
