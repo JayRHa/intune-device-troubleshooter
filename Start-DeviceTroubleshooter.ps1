@@ -90,7 +90,13 @@ if (-not (Start-Init)){
 $returnMainForm = New-XamlScreen -xamlPath ("$global:Path\xaml\ui.xaml")
 $global:formMainForm = $returnMainForm[0]
 $xamlMainForm = $returnMainForm[1]
-$xamlMainForm.SelectNodes("//*[@Name]") | % {Set-Variable -Name "WPF$($_.Name)" -Value $formMainForm.FindName($_.Name)}
+$xamlMainForm.SelectNodes("//*[@*[local-name()='Name']]") | ForEach-Object {
+    $nameAttribute = $_.Attributes | Where-Object { $_.LocalName -eq 'Name' } | Select-Object -First 1
+    if ($null -ne $nameAttribute) {
+        $controlName = $nameAttribute.Value
+        Set-Variable -Name "WPF$controlName" -Value $formMainForm.FindName($controlName)
+    }
+}
 $global:formMainForm.add_Loaded({
     $global:messageScreen.Hide()
     $global:formMainForm.Activate()
