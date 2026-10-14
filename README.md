@@ -1,20 +1,53 @@
 <!-- jr-brand:start -->
-<div align="center">
+<p align="center">
   <a href="https://jannikreinhard.com/">
-    <img src="https://raw.githubusercontent.com/JayRHa/.github/main/assets/readme/brand-header.png" alt="Jannik Reinhard — Driving AI with passion" width="100%">
+    <img src="https://raw.githubusercontent.com/JayRHa/.github/main/assets/readme/brand-header.png" alt="Jannik Reinhard — I help enterprises ship secure AI agents" width="100%">
   </a>
-  <h1>Intune Device Troubleshooter</h1>
-  <p><strong>PowerShell-based troubleshooting tool for diagnosing and resolving issues on Intune-managed Windows devices.</strong></p>
-  <p>
-  <a href="https://jannikreinhard.com/"><img src="https://img.shields.io/badge/Website-146CDD?style=flat-square&amp;logo=wordpress&amp;logoColor=white" alt="Website"></a>
-  <a href="https://github.com/JayRHa"><img src="https://img.shields.io/badge/GitHub-081427?style=flat-square&amp;logo=github&amp;logoColor=white" alt="GitHub"></a>
-  <a href="https://www.linkedin.com/in/jannik-r/"><img src="https://img.shields.io/badge/LinkedIn-0795FF?style=flat-square&amp;logo=linkedin&amp;logoColor=white" alt="LinkedIn"></a>
-  <a href="https://x.com/jannik_reinhard"><img src="https://img.shields.io/badge/X-081427?style=flat-square&amp;logo=x&amp;logoColor=white" alt="X"></a>
-  <a href="https://www.youtube.com/@jannikreinhard"><img src="https://img.shields.io/badge/YouTube-146CDD?style=flat-square&amp;logo=youtube&amp;logoColor=white" alt="YouTube"></a>
-  </p>
-  <p><sub>Driving AI with passion · Microsoft Foundry · Intune · Azure</sub></p>
-</div>
+</p>
+<p align="center">
+  <a href="https://jannikreinhard.com/">Website</a> ·
+  <a href="https://www.linkedin.com/in/jannik-r/">LinkedIn</a> ·
+  <a href="https://x.com/jannik_reinhard">X</a> ·
+  <a href="https://www.youtube.com/@jannikreinhard">YouTube</a>
+</p>
 <!-- jr-brand:end -->
+
+# Intune device troubleshooter
+
+**Type:** Tool or application · **Status:** Community project
+
+## Overview
+
+PowerShell-based troubleshooting tool for diagnosing and resolving issues on Intune-managed Windows devices.
+
+## Requirements
+
+- Windows host with PowerShell and WPF support
+- Access to Microsoft Intune and Microsoft Graph
+- User account with sufficient Intune/Entra admin rights
+
+The tool uses Microsoft Graph `beta` profile.
+
+## Quickstart
+
+```powershell
+git clone https://github.com/JayRHa/intune-device-troubleshooter.git
+cd intune-device-troubleshooter
+```
+
+Unblock bundled DLLs once (recommended):
+
+```powershell
+Get-ChildItem .\libaries\*.dll | Unblock-File
+```
+
+Run the app:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\Start-DeviceTroubleshooter.ps1
+```
+
+The script installs `Microsoft.Graph` automatically if it is missing.
 
 ## Highlights
 
@@ -34,14 +67,6 @@
 | --- | --- |
 | ![Recommendations](assets/recommendations.png) | ![Remediation](assets/remediation.png) |
 
-## Requirements
-
-- Windows host with PowerShell and WPF support
-- Access to Microsoft Intune and Microsoft Graph
-- User account with sufficient Intune/Entra admin rights
-
-The tool uses Microsoft Graph `beta` profile.
-
 ## Graph Scopes Requested by the Tool
 
 On sign-in, the app requests:
@@ -55,27 +80,6 @@ On sign-in, the app requests:
 - `DeviceManagementManagedDevices.Read.All`
 
 If remediation/group operations fail in your tenant, validate additional delegated permissions and role assignments for group write and remediation assignment operations.
-
-## Quickstart
-
-```powershell
-git clone https://github.com/JayRHa/IntuneDeviceTroubleshooter.git
-cd IntuneDeviceTroubleshooter
-```
-
-Unblock bundled DLLs once (recommended):
-
-```powershell
-Get-ChildItem .\libaries\*.dll | Unblock-File
-```
-
-Run the app:
-
-```powershell
-powershell -ExecutionPolicy Bypass -File .\Start-DeviceTroubleshooter.ps1
-```
-
-The script installs `Microsoft.Graph` automatically if it is missing.
 
 ## How Remediation Triggering Works
 
@@ -112,13 +116,7 @@ The group prefix can be adjusted in `Start-DeviceTroubleshooter.ps1`.
 MIT. See `LICENSE`.
 
 <!-- jr-brand-footer:start -->
-
 ---
 
-<div align="center">
-  <p><sub>Built and maintained by <a href="https://jannikreinhard.com/">Jannik Reinhard</a> · Microsoft MVP for Security and AI Platform.</sub></p>
-  <p><a href="https://www.buymeacoffee.com/jannikreinf">Support the open-source work</a></p>
-  <p><strong>Stay healthy, Cheers Jannik</strong></p>
-</div>
-
+[Articles and guides](https://jannikreinhard.com/) · [Repository index](https://github.com/JayRHa/.github/blob/main/REPOSITORIES.md)
 <!-- jr-brand-footer:end -->
